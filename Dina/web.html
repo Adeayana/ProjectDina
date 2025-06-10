@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biodata Diri - Aesthetic</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@400;600&display=swap');
+
+    /* Root colors */
+    :root {
+      --cream: #f8f3e7;
+      --soft-pink: #f4c2c2;
+      --pink-light: #ffd9db;
+      --pink-bright: #ff9ba6;
+      --shadow: rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    body {
+      background: var(--cream);
+      color: #5c3a3a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    main {
+      background: white;
+      max-width: 700px;
+      width: 100%;
+      padding: 2.5rem 3rem 3rem 3rem;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px var(--shadow);
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    /* Ribbon Elements */
+    .ribbon {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 100vmax;
+      opacity: 0.7;
+      filter: drop-shadow(1px 1px 3px rgba(255 155 166 / 0.5));
+      animation-timing-function: ease-in-out;
+      mix-blend-mode: screen;
+    }
+
+    .ribbon1 {
+      width: 180px;
+      height: 20px;
+      background: linear-gradient(90deg, #ff9ba6, #ffd9db);
+      top: 10%;
+      left: -200px;
+      animation: moveRibbon1 12s infinite alternate;
+    }
+    .ribbon2 {
+      width: 150px;
+      height: 15px;
+      background: linear-gradient(90deg, #fcc9c9, #ffc7c7);
+      top: 70%;
+      right: -180px;
+      animation: moveRibbon2 15s infinite alternate;
+    }
+    .ribbon3 {
+      width: 200px;
+      height: 18px;
+      background: linear-gradient(90deg, #ff9ba6, #fed7d7);
+      top: 50%;
+      left: -220px;
+      animation: moveRibbon3 18s infinite alternate;
+    }
+
+    @keyframes moveRibbon1 {
+      0% { transform: translateX(0) translateY(0) rotate(20deg); }
+      50% { transform: translateX(520px) translateY(10px) rotate(25deg); }
+      100% { transform: translateX(0) translateY(0) rotate(20deg); }
+    }
+    @keyframes moveRibbon2 {
+      0% { transform: translateX(0) translateY(0) rotate(-15deg); }
+      50% { transform: translateX(-450px) translateY(-10px) rotate(-10deg); }
+      100% { transform: translateX(0) translateY(0) rotate(-15deg); }
+    }
+    @keyframes moveRibbon3 {
+      0% { transform: translateX(0) translateY(0) rotate(10deg); }
+      50% { transform: translateX(480px) translateY(5px) rotate(15deg); }
+      100% { transform: translateX(0) translateY(0) rotate(10deg); }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 12;
+    }
+
+    header h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 3.6rem;
+      color: var(--pink-bright);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.2rem;
+    }
+
+    header p.subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #a05555;
+      letter-spacing: 0.05em;
+      user-select: none;
+      margin-bottom: 1rem;
+    }
+
+    .photo-container {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem auto;
+      border-radius: 50%;
+      border: 6px solid var(--pink-light);
+      overflow: hidden;
+      box-shadow: 0 10px 20px var(--shadow);
+      transition: transform 0.4s ease;
+      cursor: default;
+    }
+    .photo-container:hover {
+      transform: scale(1.07) rotate(3deg);
+      box-shadow: 0 15px 30px var(--pink-bright);
+    }
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: var(--pink-bright);
+      margin-bottom: 1.1rem;
+      border-bottom: 3px solid var(--pink-light);
+      padding-bottom: 0.3rem;
+      width: fit-content;
+      user-select: none;
+    }
+
+    p.about-me {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: #6c4b4b;
+      user-select: text;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.8rem 1.5rem;
+    }
+    dt {
+      font-weight: 700;
+      color: var(--pink-bright);
+      user-select: none;
+    }
+    dd {
+      font-weight: 500;
+      color: #5a3f3f;
+      margin-left: 0;
+      user-select: text;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+    }
+
+    .skill-pill {
+      background: var(--pink-light);
+      color: #7f4c4c;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      box-shadow: inset 0 0 5px rgba(255 193 193 / 0.4);
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      cursor: default;
+    }
+    .skill-pill:hover {
+      background: var(--pink-bright);
+      color: white;
+      box-shadow: 0 3px 8px rgba(255 82 115 / 0.7);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #a66969;
+      margin-top: 1rem;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      main {
+        padding: 1.5rem 2rem 2.5rem 2rem;
+      }
+      header h1 {
+        font-size: 2.8rem;
+      }
+      header p.subtitle {
+        font-size: 1rem;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .skills-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon ribbon1" aria-hidden="true"></div>
+  <div class="ribbon ribbon2" aria-hidden="true"></div>
+  <div class="ribbon ribbon3" aria-hidden="true"></div>
+
+  <main role="main" aria-label="Personal biodata">
+    <header>
+      <h1>Ayu Lestari</h1>
+      <p class="subtitle">Web Developer & Designer</p>
+      <div class="photo-container" aria-label="Photo of Ayu Lestari">
+        <img src="https://i.pravatar.cc/140?img=17" alt="Portrait of Ayu Lestari" />
+      </div>
+    </header>
+
+    <section aria-labelledby="about-me-title">
+      <h2 id="about-me-title">About Me</h2>
+      <p class="about-me">
+        Hello! I’m Ayu, passionate about creating elegant and user-friendly websites. I enjoy crafting beautiful designs with a blend of creativity and functionality. In my free time, I love painting and exploring creative arts.
+      </p>
+    </section>
+
+    <section aria-labelledby="personal-info-title">
+      <h2 id="personal-info-title">Personal Info</h2>
+      <dl>
+        <dt>Full Name</dt><dd>Ayu Lestari</dd>
+        <dt>Birthdate</dt><dd>January 15, 1995</dd>
+        <dt>Address</dt><dd>Jl. Melati No. 45, Bandung, Indonesia</dd>
+        <dt>Email</dt><dd><a href="mailto:ayu.lestari@example.com">ayu.lestari@example.com</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+628123456789">+62 812-3456-789</a></dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <div class="skills-list" aria-label="List of skills">
+        <span class="skill-pill">HTML5</span>
+        <span class="skill-pill">CSS3</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">UI/UX Design</span>
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">Responsive Design</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>
+        Feel free to reach out for collaborations or just a friendly hello!<br />
+        <a href="mailto:ayu.lestari@example.com" style="color: var(--pink-bright); font-weight: 600;">ayu.lestari@example.com</a>
+      </p>
+    </section>
+    
+    <footer>
+      &copy; 2024 Ayu Lestari. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
+
